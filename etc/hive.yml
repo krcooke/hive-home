@@ -1,0 +1,12 @@
+hive:
+    presence:
+        ips:
+            - 192.168.1.10
+            - 192.168.1.11
+            - 192.168.1.12
+        limit: 5
+        period: 60
+    log: /var/tmp/hive.log
+    account:
+        username: <add your username>
+        password: <add your password>
