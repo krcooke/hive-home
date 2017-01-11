@@ -22,7 +22,7 @@ Logic:
 3. To deploy it run: python3.5 hive.py --config <path to your config file> start
 4. Add it to your start sequence to run when your host reboots.
 
-Credits:
+## Credits:
 1. It uses a daemon module borrowed from [here](http://web.archive.org/web/20131017130434/http://www.jejik.com/articles/2007/02/a_simple_unix_linux_daemon_in_python/)
 2. Hive API details at [Smartofthehome](http://www.smartofthehome.com/2016/05/hive-rest-api-v6/)
 
