@@ -99,13 +99,11 @@ class hiveControl(Daemon):
 
             # 3) Turn the heating off
             if current_state == 'HEAT' and next_state == 'OFF':
-                logger.debug("Control: OFF")
                 # If delay_counter is greater than delay config, then issue command to hive
                 set_mode('OFF')
                 current_state = 'OFF'
             # 1) Turn the heating on
             elif current_state == 'OFF' and next_state == 'HEAT':
-                logger.debug("Control: HEAT")
                 set_mode('HEAT')
                 current_state = 'HEAT'
 

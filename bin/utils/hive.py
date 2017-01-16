@@ -13,8 +13,8 @@ logger = logging.getLogger('hive')
 session_id = ""
 node_id = ""
 headers = {
-        'Content-Type': 'application/vnd.alertme.zoo-6.1+json',
-        'Accept': 'application/vnd.alertme.zoo-6.1+json',
+        'Accept': 'application/vnd.alertme.zoo-6.4+json',
+        'Content-Type': 'application/json',
         'X-Omnia-Client': 'Hive Web Dashboard'
     }
 
@@ -82,13 +82,21 @@ def set_mode(mode):
     global node_id
     global headers
     global session_id
+    activeScheduleLock = {
+        "OFF": "true",
+        "HEAT": "false"
+    }
+    logger.debug("Control: %s", mode)
     url = 'https://api-prod.bgchprod.info:443/omnia/nodes/' + node_id
     payload = {
         'nodes': [
             { 'attributes':
                 {
                     "activeHeatCoolMode": {
-                        "targetValue": mode
+                        "targetValue": mode,
+                    },
+                    "activeScheduleLock": {
+                        "targetValue": activeScheduleLock[mode]
                     }
                 }
             }
@@ -96,7 +104,7 @@ def set_mode(mode):
     }
     headers['X-Omnia-Access-Token'] = session_id
     response = _issue_request(url, method = 'put', data = json.dumps(payload))
-    #logger.debug("Response: %s", response.text)
+    logger.debug("Response: %s", response.text)
     return response
 
 # Logout
