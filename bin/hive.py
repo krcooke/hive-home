@@ -1,6 +1,5 @@
 #!/usr/bin/python3.5
  
-from subprocess import run, CalledProcessError, PIPE
 import sys, time
 import argparse
 import logging
@@ -55,10 +54,7 @@ class hiveControl(Daemon):
                     
                 # Ping the IP
                 ping_cmd = "ping -c1 " + ip
-                try:
-                    status = os.system(ping_cmd)
-                except CalledProcessError as e:
-                    logger.error ("STDout: %s", CalledProcessError.output)
+                status = os.system(ping_cmd)
                
                 logger.debug("%s -> %s", ip, status)
                 

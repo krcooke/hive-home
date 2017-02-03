@@ -13,15 +13,16 @@ Logic:
 ## Requirements:
 1. Each of your mobile phones will need to be mapped to a static IP in your router/DHCP server. This is normally relaitvely straight forward if you have access to your broadband router. Once you have set them to static IPs, make a note of them as they will need to be added to the config file.
 2. You will need a always-on computer to run this on, I use a little Ubuntu microserver, a Rasberry Pi would also do nicely.
-3. Its written to work against Python 3.5
+3. It's written/tested to work against Python 3.x
+4. It requires the PyYAML library (e.g. run: `pip3 install pyyaml`)
 
 ## Installation:
 1. Sync the git respository locally
-2. Edit the sample config file with your Hive username and password and the IP addresses you want to have monitored. Other configs you can play with are:
+2. Edit the sample config file (etc/hive.yml) with your Hive username and password and the IP addresses you want to have monitored. Other configs you can play with are:
   1. `Log`: pretty self explanitory, note the logs rotate over 5 days. 
   2. `Period`: how long to wait in between pinging each IP
   3. `Limit`: how many failed ping attempts between turning the heating OFF
-3. To deploy it run: `python3.5 hive.py --config <path to your config file> start`
+3. To deploy it run: `python3 hive.py --config <path to your config file> start`
 4. Add it to your start sequence to run when your host reboots.
 
 ## Credits:
