@@ -1,6 +1,6 @@
 # hive-home
 
-A tool to control your Hive thermostat to enable/disable your heating schedule dependant upon your mobile phones being connected to your home wifi.
+A tool to control your Hive thermostat to enable/disable your heating schedule dependant upon your mobile phones being connected to your home wifi SIDD.
 
 The Hive Thermostat has a geolocation feature, however it doesn't actually turn your heating on/off for you, it just gives you alerts in the mobile app. This tool tries to mimic the Google Nest feature by turning the heating on/off based on whether you mobile phones are connected to your home wifi network. e.g. if it can't ping any mobile phones in your house then it assumes you are all out and turns the heating off. As soon as it can ping a phone, it assumes someone has come home and turns it back onto the schedule again.
 
